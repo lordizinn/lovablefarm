@@ -30,7 +30,7 @@ export const config = {
   
   // Tor Configuration
   torEnabled: process.env.TOR_ENABLED === 'true',
-  torSocksPort: parseInt(process.env.TOR_SOCKS_PORT || '9050'),
+  torSocksPort: parseInt(process.env.TOR_SOCKS_PORT || '9050') || 9050,
   torSocksHost: process.env.TOR_SOCKS_HOST || '127.0.0.1',
 
   // Execution Settings
