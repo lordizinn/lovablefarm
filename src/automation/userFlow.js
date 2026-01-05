@@ -54,10 +54,23 @@ export async function executeUserFlow(userId, referralLink, domain = null, proxy
 
     // 2. Configurar proxy (usar proxy específico se fornecido, senão tentar obter um)
     let finalProxyString = proxyString;
-    if (!finalProxyString && config.proxyEnabled) {
+    let torProxy = null;
+    
+    // Se Tor está habilitado, configure-o como proxy
+    if (config.torEnabled && !finalProxyString) {
+      torProxy = {
+        server: `socks5://${config.torSocksHost}:${config.torSocksPort}`
+      };
+      logger.info('🧅 Usando Tor (SOCKS5 Proxy)', {
+        host: config.torSocksHost,
+        port: config.torSocksPort
+      });
+    }
+    
+    if (!finalProxyString && !torProxy && config.proxyEnabled) {
       finalProxyString = proxyService.getRandomProxy();
     }
-    const proxyConfig = finalProxyString ? proxyService.getProxyConfig(finalProxyString) : null;
+    const proxyConfig = finalProxyString ? proxyService.getProxyConfig(finalProxyString) : torProxy;
     const usingProxy = !!proxyConfig;
     
     if (proxyConfig) {

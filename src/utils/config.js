@@ -27,6 +27,11 @@ export const config = {
   proxyEnabled: process.env.PROXY_ENABLED === 'true',
   proxyListUrl: process.env.PROXY_LIST_URL,
   proxyList: process.env.PROXY_LIST ? process.env.PROXY_LIST.split(',') : [],
+  
+  // Tor Configuration
+  torEnabled: process.env.TOR_ENABLED === 'true',
+  torSocksPort: parseInt(process.env.TOR_SOCKS_PORT || '9050'),
+  torSocksHost: process.env.TOR_SOCKS_HOST || '127.0.0.1',
 
   // Execution Settings
   maxConcurrentUsers: parseInt(process.env.MAX_CONCURRENT_USERS || '5'),
