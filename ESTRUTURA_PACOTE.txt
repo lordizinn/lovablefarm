@@ -1,0 +1,265 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                    📦 LOVABLE FARM - PACOTE COMPLETO                     ║
+║                        Pronto para Download e Uso                        ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  🚀 INÍCIO RÁPIDO - APENAS 3 COMANDOS                                    │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   1️⃣  git clone https://github.com/lordizinn/lovablefarm.git
+       cd lovablefarm
+
+   2️⃣  chmod +x setup-complete.sh && ./setup-complete.sh
+       ↓
+       • Instala dependências npm
+       • Instala browsers Playwright
+       • Cria arquivo .env
+       • Pergunta sobre Tor (opcional)
+       • Valida tudo
+       • Cria menu interativo
+
+   3️⃣  nano .env  # Edite REFERRAL_LINK
+       ./start.sh  # Execute!
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  📂 ESTRUTURA DE ARQUIVOS                                                │
+└──────────────────────────────────────────────────────────────────────────┘
+
+lovablefarm/
+│
+├── 🔧 SCRIPTS AUTOMÁTICOS
+│   ├── setup-complete.sh      ⭐ Setup automático completo
+│   ├── start.sh               🎮 Menu interativo (criado pelo setup)
+│   └── test-tor.sh            🧅 Testar Tor
+│
+├── ⚙️  CONFIGURAÇÃO
+│   └── .env.example           📋 Template completo com valores prontos
+│
+├── 📚 DOCUMENTAÇÃO
+│   ├── QUICK_START.md         ⚡ Comece aqui! (3 comandos)
+│   ├── PACOTE_COMPLETO.md     📦 Visão geral completa do pacote
+│   ├── TOR_GUIDE.md           🧅 Guia Tor detalhado
+│   ├── README.md              📖 Documentação principal
+│   ├── ENV_CONFIG.md          🔐 Detalhes das configurações
+│   └── FAQ.md                 ❓ Perguntas frequentes
+│
+├── �� CÓDIGO FONTE
+│   ├── package.json           📦 Dependências
+│   └── src/
+│       ├── index.js           🎯 Orquestrador principal
+│       ├── automation/        🤖 Fluxos automatizados
+│       │   ├── userFlow.js    👤 Fluxo do usuário
+│       │   └── lovableFlow.js 🚀 Fluxo Lovable
+│       ├── services/          🔧 Serviços
+│       │   ├── emailService.js 📧 Gerenciamento de emails
+│       │   ├── proxyService.js 🌐 Rotação de proxy
+│       │   └── reportService.js 📊 Relatórios
+│       └── utils/             🛠️  Utilidades
+│           ├── config.js      ⚙️  Configurações (com Tor!)
+│           └── logger.js      📝 Sistema de logs
+│
+├── 📊 RELATÓRIOS (criado ao executar)
+│   ├── report-*.json          Relatórios detalhados em JSON
+│   └── report-*.txt           Relatórios legíveis em texto
+│
+└── ⚙️  CONFIGURAÇÕES ADICIONAIS
+    └── config/
+        └── email-domains.json  📧 Domínios de email
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  ⚙️  CONFIGURAÇÃO JÁ PRONTA                                               │
+└──────────────────────────────────────────────────────────────────────────┘
+
+.env.example contém:
+   ✅ LOVABLE_BASE_URL          → https://lovable.dev
+   ✅ REFERRAL_LINK             → Você só precisa editar este!
+   ✅ INBOUND_API_KEY           → Já configurado e funcionando
+   ✅ INBOUND_DOMAIN            → equipeartificial.com
+   ✅ TOR_ENABLED               → false (mude para true se precisar)
+   ✅ TOR_SOCKS_HOST            → 127.0.0.1
+   ✅ TOR_SOCKS_PORT            → 9050
+   ✅ MAX_CONCURRENT_USERS      → 5
+   ✅ HEADLESS                  → true
+   ✅ TIMEOUT_MS                → 60000
+   ✅ Todas as outras variáveis → Valores funcionais pré-definidos
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  🎯 O QUE O SETUP AUTOMÁTICO FAZ                                         │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  1. Verificação                                                     │
+   │     ✓ Checa Node.js instalado                                      │
+   │     ✓ Checa npm instalado                                          │
+   └─────────────────────────────────────────────────────────────────────┘
+                              ↓
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  2. Instalação de Dependências                                      │
+   │     ✓ npm install (todas as dependências)                          │
+   │     ✓ npx playwright install chromium (browser)                    │
+   └─────────────────────────────────────────────────────────────────────┘
+                              ↓
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  3. Configuração .env                                               │
+   │     ✓ Copia .env.example para .env                                 │
+   │     ✓ Pergunta se deseja sobrescrever (se já existe)               │
+   └─────────────────────────────────────────────────────────────────────┘
+                              ↓
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  4. Tor (Opcional)                                                  │
+   │     ❓ Deseja instalar Tor?                                         │
+   │     ✓ Detecta sistema operacional                                  │
+   │     ✓ Instala via apt-get (Linux) ou brew (macOS)                  │
+   │     ✓ Inicia serviço Tor                                           │
+   │     ✓ Configura TOR_ENABLED=true no .env                           │
+   │     ✓ Aguarda bootstrap (10s)                                      │
+   │     ✓ Valida porta 9050                                            │
+   └─────────────────────────────────────────────────────────────────────┘
+                              ↓
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  5. Validação                                                       │
+   │     ✓ Verifica .env existe                                         │
+   │     ✓ Valida REFERRAL_LINK                                         │
+   │     ✓ Valida INBOUND_API_KEY                                       │
+   └─────────────────────────────────────────────────────────────────────┘
+                              ↓
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  6. Script de Início Rápido                                         │
+   │     ✓ Cria start.sh com menu interativo                            │
+   │     ✓ chmod +x start.sh                                            │
+   └─────────────────────────────────────────────────────────────────────┘
+                              ↓
+   ┌─────────────────────────────────────────────────────────────────────┐
+   │  7. Próximos Passos                                                 │
+   │     ✓ Mostra instruções claras                                     │
+   │     ✓ Links para documentação                                      │
+   └─────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  🎮 COMO EXECUTAR TESTES                                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   Opção 1: Menu Interativo
+   ┌────────────────────────────────────────────┐
+   │  $ ./start.sh                              │
+   │                                            │
+   │  🚀 Iniciando Lovable Farm...              │
+   │  Escolha o tipo de teste:                 │
+   │    1) Teste pequeno (10 usuários)         │
+   │    2) Teste médio (100 usuários)          │
+   │    3) Teste grande (1000 usuários)        │
+   │    4) Teste customizado                   │
+   │                                            │
+   │  Opção [1-4]: _                           │
+   └────────────────────────────────────────────┘
+
+   Opção 2: Comandos Diretos
+   ┌────────────────────────────────────────────┐
+   │  $ npm run test:small    # 10 usuários    │
+   │  $ npm run test:medium   # 100 usuários   │
+   │  $ npm run test:large    # 1000 usuários  │
+   └────────────────────────────────────────────┘
+
+   Opção 3: Customizado
+   ┌────────────────────────────────────────────┐
+   │  $ node src/index.js --users=50 \         │
+   │                      --concurrent=10      │
+   └────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  🧅 INTEGRAÇÃO TOR                                                        │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   O que é Tor?
+   • Rede de anonimato para bypass de bloqueios
+   • Gratuito e open source
+   • Roteia tráfego através de múltiplos nós
+
+   Quando usar?
+   • Bloqueios de DNS (lovable.dev não resolve)
+   • Restrições de rede
+   • Anonimização de IP
+
+   Como usar?
+   1. Setup automático já oferece instalação
+   2. Ou instale manualmente:
+      Linux:  sudo apt-get install tor && sudo systemctl start tor
+      macOS:  brew install tor && brew services start tor
+   3. Configure no .env:
+      TOR_ENABLED=true
+
+   Logs mostrarão:
+   [INFO] 🧅 Usando Tor (SOCKS5 Proxy)
+     host: 127.0.0.1
+     port: 9050
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  📊 RELATÓRIOS                                                           │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   Salvos automaticamente em: reports/
+
+   Formato JSON (detalhado):
+   reports/report-2026-01-07T13-00-00-000Z.json
+
+   Formato TXT (legível):
+   reports/report-2026-01-07T13-00-00-000Z.txt
+
+   Exemplo de relatório:
+   ═══════════════════════════════════════════════════════
+              LOVABLE REFERRAL TEST REPORT
+   ═══════════════════════════════════════════════════════
+
+   📊 RESUMO
+   Total de Usuários:       10
+   ✅ Sucessos:             8
+   ❌ Falhas:               2
+   📈 Taxa de Sucesso:      80.00%
+   💰 Total de Créditos:    80
+   ⏱️  Tempo de Execução:    5m 30s
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  ✨ VANTAGENS DESTE PACOTE                                               │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   ╔════════════════════════════════╦═══════════════════════════════╗
+   ║           ANTES                ║           AGORA               ║
+   ╠════════════════════════════════╬═══════════════════════════════╣
+   ║ Setup manual ~30min            ║ Setup automático ~5min        ║
+   ║ Configurar 20+ variáveis       ║ Configurar apenas 1 variável  ║
+   ║ Instalar Tor manualmente       ║ Setup pergunta e instala      ║
+   ║ Criar scripts de teste         ║ Menu interativo pronto        ║
+   ║ Ler docs para configurar       ║ Valores funcionais pré-config ║
+   ║ Comandos complexos             ║ 3 comandos simples            ║
+   ╚════════════════════════════════╩═══════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  ✅ CHECKLIST ANTES DE EXECUTAR                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   [ ] Executou ./setup-complete.sh
+   [ ] Configurou REFERRAL_LINK no .env
+   [ ] Instalou Tor (se necessário)
+   [ ] Tem conexão com internet (ou Tor configurado)
+
+   Pronto! Execute: ./start.sh
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  📚 DOCUMENTAÇÃO DISPONÍVEL                                              │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   QUICK_START.md       → Setup em 3 comandos (COMECE AQUI!)
+   PACOTE_COMPLETO.md   → Visão geral do pacote
+   TOR_GUIDE.md         → Guia Tor detalhado
+   README.md            → Documentação principal
+   ENV_CONFIG.md        → Todas as configurações
+   FAQ.md               → Perguntas frequentes
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║                  🎉 TUDO PRONTO PARA USAR!                               ║
+║                                                                          ║
+║  Clone → Execute setup → Edite link → Teste                             ║
+║                                                                          ║
+║  De zero a primeiro teste: ~5 minutos! 🚀                                ║
+╚══════════════════════════════════════════════════════════════════════════╝
