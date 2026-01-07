@@ -7,7 +7,7 @@ Sistema automatizado de testes em escala para validar plataforma de indicação 
 [![Playwright](https://img.shields.io/badge/playwright-1.48.0-45ba4b.svg)](https://playwright.dev/)
 [![ProxiedMail](https://img.shields.io/badge/ProxiedMail-API-blue.svg)](https://proxiedmail.com)
 
-> **👋 Novo por aqui?** Comece pelo **[Guia de Boas-Vindas](WELCOME.md)** para um tour completo!
+> **👋 Novo por aqui?** Comece pelo **[QUICK_START.md](QUICK_START.md)** - Setup em 3 comandos!
 
 ---
 
@@ -15,19 +15,33 @@ Sistema automatizado de testes em escala para validar plataforma de indicação 
 
 > **📑 [Índice Completo de Documentação](INDEX.md)** - Navegue por todos os documentos
 
-### Documentos Principais
+### 🚀 Começando
 
+- **[⚡ QUICK_START.md](QUICK_START.md)** - **Setup em 3 comandos! (COMECE AQUI)**
 - **[👋 Boas-Vindas](WELCOME.md)** - Tour completo do sistema
-- **[⚡ Guia Rápido (5 minutos)](QUICKSTART.md)** - Comece aqui!
+- **[⚡ Guia Rápido (5 minutos)](QUICKSTART.md)** - Início rápido alternativo
+
+### 🔧 Configuração
+
+- **[🔐 Configuração de Variáveis](ENV_CONFIG.md)** - Guia completo do .env
+- **[🧅 TOR_GUIDE.md](TOR_GUIDE.md)** - Como usar Tor para bypass DNS
+- **[🔧 Setup Detalhado](SETUP.md)** - Instalação e configuração completa
+
+### 📖 Uso e Referência
+
+- **[📖 Exemplos de Uso](EXAMPLES.md)** - Casos de uso práticos
+- **[🎮 Comandos](COMMANDS.md)** - Referência de comandos
+- **[❓ FAQ](FAQ.md)** - Perguntas frequentes
+
+### 🏗️ Técnico
+
 - **[📧 Monitoramento de Emails](EMAIL_MONITORING.md)** - Como funciona o sistema de emails
 - **[✅ Regras de Validação](VALIDATION_RULES.md)** - Validação rigorosa de links de verificação
 - **[🚀 Fluxo Lovable Completo](LOVABLE_FLOW.md)** - Automação completa do fluxo na plataforma
-- **[🔧 Setup Detalhado](SETUP.md)** - Instalação e configuração completa
-- **[🔐 Configuração de Variáveis](ENV_CONFIG.md)** - Guia completo do .env
-- **[📖 Exemplos de Uso](EXAMPLES.md)** - Casos de uso práticos
-- **[❓ FAQ](FAQ.md)** - Perguntas frequentes
-- **[🎮 Comandos](COMMANDS.md)** - Referência de comandos
 - **[🏗️ Arquitetura](ARCHITECTURE.md)** - Como o sistema funciona
+
+### 📋 Gestão
+
 - **[📦 Resumo do Projeto](PROJECT_SUMMARY.md)** - Visão geral completa
 - **[📋 Resumo Executivo](EXECUTIVE_SUMMARY.md)** - Para gestores
 - **[🤝 Contribuir](CONTRIBUTING.md)** - Como contribuir
@@ -49,6 +63,10 @@ Simula usuários reais completando todo o fluxo de cadastro via link de indicaç
 
 ## 🎯 Características
 
+- **Setup Automático**: Script `setup-complete.sh` configura tudo em um comando
+- **Configuração Pronta**: Arquivo `.env.example` com todas as opções documentadas
+- **Integração Tor**: Bypass de bloqueios DNS com suporte completo à rede Tor
+- **Menu Interativo**: Script `start.sh` para escolher tipo de teste facilmente
 - **Emails realistas**: Nomes brasileiros + números aleatórios (ex: `joao.silva1234@funcionariosdeia.com`)
 - **Domínios customizados**: Alterna entre `funcionariosdeia.com` e `pixelhausia.com`
 - **Monitoramento automático**: Sistema monitora chegada de emails e clica no link de verificação
@@ -57,13 +75,44 @@ Simula usuários reais completando todo o fluxo de cadastro via link de indicaç
 - **Totalmente automatizado**: Zero intervenção manual
 - **Relatórios detalhados**: Métricas e logs de cada execução
 
-## 🛠️ Instalação Rápida
+---
+
+## ⚡ Setup Automático (RECOMENDADO)
+
+```bash
+# Clone o repositório
+git clone https://github.com/lordizinn/lovablefarm.git
+cd lovablefarm
+
+# Execute o setup completo (tudo automático!)
+chmod +x setup-complete.sh
+./setup-complete.sh
+
+# Configure seu link de referência
+nano .env  # Edite REFERRAL_LINK
+
+# Pronto! Execute os testes
+./start.sh  # Menu interativo
+```
+
+✅ **O script automático instala e configura TUDO:**
+- Dependências npm
+- Browsers Playwright
+- Arquivo .env pronto
+- Tor (opcional)
+- Scripts de início rápido
+
+📖 **[Ver guia completo →](QUICK_START.md)**
+
+---
+
+## 🛠️ Instalação Manual (alternativa)
 
 ```bash
 # Tudo em um comando
 npm run setup
 
-# Ou manualmente:
+# Ou passo a passo:
 npm install
 npm run install:browsers
 cp .env.example .env
