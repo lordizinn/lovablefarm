@@ -85,7 +85,7 @@ class ReferralTester {
     for (let i = 1; i <= this.totalUsers; i++) {
       const promise = limit(async () => {
         try {
-          const result = await executeUserFlow(i);
+          const result = await executeUserFlow(i, config.referralLink);
           reportService.addResult(i, result);
           
           completed++;
